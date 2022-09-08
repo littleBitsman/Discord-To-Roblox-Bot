@@ -28,7 +28,7 @@
             applicationId: '1001498584476287076',
             guild: Guild {
                 id: '776094501353160735',
-                name: 'Flood Project 275',
+                name: 'Your Server',
                 icon: '35a647be0c7429754008970168d1dd9d',
                 features: [Array],
                 commands: [GuildApplicationCommandManager],
