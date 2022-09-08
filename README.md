@@ -1,5 +1,5 @@
 # Discord-to-Roblox Moderation Bot
-## Instructions for Installation:
+## Instructions for Installation (or, watch the video when it's out):
 1. Download the latest release as a ZIP file.
 2. Extract it to a folder. In this guide, it will be referred to as "the folder".
 3. Open `config.json`.
