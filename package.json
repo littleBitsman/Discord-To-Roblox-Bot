@@ -1,0 +1,23 @@
+{
+  "name": "discord-to-roblox",
+  "version": "1.0.0",
+  "description": "1. Download the latest release as a ZIP file.\r 2. Extract it to a folder. In this guide, it will be referred to as \"the folder\".\r 3. Open `config.json`.\r 4. Go to https://discord.com/developers. _Skip 4-6 if you have an existing application with a bot account._\r 5. Create an application. \r 6. Create a bot account under \"Bot\".\r 7. Copy your token. **_WARNING: THIS TOKEN IS VERY SENSITIVE. IF STOLEN, MALICIOUS PEOPLE CAN USE IT TO IMPERSONATE YOUR BOT, POTENTIALLY GETTING IT DELETED. KEEP THIS PRIVATE!!!!_**\r 8. Go back to `config.json` and set the `\"token\"` value to the token you copied. Make sure it is wrapped in quotation marks (for example, `\"token\": \"h8wa7y67sagd657w6dwad\"` <-- this isn't a real token).\r 9. Go to https://create.roblox.com/credentials and press \"Create API Key\".\r 10. Under \"Access Permissions\", select \"Messaging Service API\" and then press \"Add API System\"\r 11. Add the desired experience that you want to link to the Discord bot. You have to have created it. \r     - Once you have selected the experience, hit \"Add Experience\"\r     - Then, under \"Experience Operations\", select \"Publish\".\r 12. Enter the IP addresses that you want to allow to use this API key. I recommend using Glitch and uploading the files there.\r     - If you are using Glitch, go to your project's terminal and run `curl https://ifconfig.me`. Don't worry, it only exposes the project's IP address. Copy and use this IP address in the IP addresses you want to allow on the API key.\r 13. Create the API key with your choice of expiration date and copy it. **_WARNING: THIS TOKEN IS ALSO VERY SENSITIVE AND THOSE WITH MALICIOUS INTENT CAN SEND NSFW CONTENT TO GAME SERVERS, POSSIBLY GETTING YOUR GAME BANNED FROM ROBLOX. KEEP THIS PRIVATE!!!!_**\r 14. Go back to `config.json` and set the `robloxAPIKey` field to the copied API key.\r 15. Invite your bot to the desired guild/Discord server using the OAuth2 URI generator in the Discord Developer Dashboard (in the Application > OAuth2). Make sure you set the scopes to `bot` and `application.commands`. \r 16. Enable developer mode in the Discord app and copy the guild/server ID and set the `guildId` field in `config.json` to the guild ID.\r 17. _This step varies if you are on Glitch or on a PC._\r     - If you are on Glitch, do the following: \r         - Literally wait for the server to start having an output. There should be a rather large",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littleBitsman/Discord-To-Roblox-Bot.git"
+  },
+  "author": "littleBitsman#4576",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/littleBitsman/Discord-To-Roblox-Bot/issues"
+  },
+  "homepage": "https://github.com/littleBitsman/Discord-To-Roblox-Bot#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "discord.js": "^14.3.0"
+  }
+}
