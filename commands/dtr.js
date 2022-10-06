@@ -127,25 +127,6 @@ module.exports = {
                     required: false
                 }
             ]
-        },
-        {
-            name: 'maintenance',
-            type: 1,
-            description: 'Enable/disable maintenance for all servers.',
-            options: [
-                {
-                    name: 'enabled',
-                    description: 'Enable/disable',
-                    type: Discord.ApplicationCommandOptionType.Boolean,
-                    required: true
-                },
-                {
-                    name: 'reason',
-                    description: 'Why you are shutting down all servers.',
-                    type: 3,
-                    required: false
-                }
-            ]
         }
     ],
     defaultPermission: false,
@@ -162,6 +143,12 @@ module.exports = {
                 var user = interaction.options.get('user')
                 if (isNaN(user)) { // username
                     var res = await axios.get('https://api.roblox.com/users/get-by-username?username=' + user)
+                    .catch(() => {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
+                    })
                     res = res.data
                     if (res.Id != undefined) {
                         var embed = new Discord.EmbedBuilder()
@@ -179,9 +166,20 @@ module.exports = {
                         await req.data
                         console.log(req.headers)
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 } else if (!isNaN(user)) { // userid
                     var res = await axios.get('https://api.roblox.com/users/' + user)
+                    .catch(() => {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
+                    })
                     res = res.data
                     if (res.Id != undefined) {
                         var embed = new Discord.EmbedBuilder()
@@ -198,6 +196,11 @@ module.exports = {
                         )
                         await req.data
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 }
                 break;
@@ -205,6 +208,12 @@ module.exports = {
                 var user = interaction.options.get('user')
                 if (isNaN(user)) { // username
                     var res = await axios.get('https://api.roblox.com/users/get-by-username?username=' + user)
+                    .catch(() => {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
+                    })
                     res = res.data
                     if (res.Id != undefined) {
                         var embed = new Discord.EmbedBuilder()
@@ -222,10 +231,21 @@ module.exports = {
                         await req.data
                         console.log(req.headers)
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 } else if (!isNaN(user)) { // userid
                     var user = interaction.options.get('user').value
                     var res = await axios.get('https://api.roblox.com/users/' + user)
+                    .catch(() => {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
+                    })
                     res = res.data
                     console.log(res.Username)
                     console.log(res.Id)
@@ -244,11 +264,22 @@ module.exports = {
                         )
                         await req.data
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 }
                 break;
             case 'unban':
                 var user = interaction.options.get('user')
+                .catch(() => {
+                    interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                        .setDescription('❌ Invalid Username')
+                        .setColor('DarkRed')
+                    ]})
+                })
                 if (isNaN(user)) { // username
                     var res = await axios.get('https://api.roblox.com/users/get-by-username?username=' + user)
                     res = res.data
@@ -267,10 +298,21 @@ module.exports = {
                         )
                         await req.data
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 } else if (!isNaN(user)) { // userid
                     var user = interaction.options.get('user').value
                     var res = await axios.get('https://api.roblox.com/users/' + user)
+                    .catch(() => {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
+                    })
                     res = res.data
 
                     if (res.Id != undefined) {
@@ -288,6 +330,11 @@ module.exports = {
                         )
                         await req.data
                         interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
+                    } else {
+                        interaction.reply({ embeds: [new Discord.EmbedBuilder()
+                            .setDescription('❌ Invalid Username')
+                            .setColor('DarkRed')
+                        ]})
                     }
                 }
                 break;
@@ -303,24 +350,6 @@ module.exports = {
                 var req = await axios.post(
                     'https://apis.roblox.com/messaging-service/v1/universes/1841687313/topics/shutdowns',
                     { 'message': `${reason} | ${time} |  Discord To Roblox Command Execution - Executor: <@${interaction.member.id}>` },
-                    { headers: { 'x-api-key': key } }
-                )
-                await req.data
-                interaction.reply({ content: interaction.member.toString(), embeds: [embed], ephemeral: true })
-                break;
-            //}
-            case 'maintenance':
-                var enabled = interaction.options.get('enabled').value
-                var embed = new Discord.EmbedBuilder()
-                    .setTitle('Shutdown successful.')
-                    .setFooter({ text: '1+1=2' })
-                    .addFields([{ name: 'Reason', value: reason }, { name: 'Enabled?', value: enabled }])
-                    .setColor('#00ff44')
-                    .setAuthor({ name: '@littleBitsman#4576' })
-                    .setTimestamp()
-                var req = await axios.post(
-                    'https://apis.roblox.com/messaging-service/v1/universes/1841687313/topics/moderation',
-                    { 'message': `maintenance | ${enabled} | ${reason} |  Discord To Roblox Command Execution - Executor: <@${interaction.member.id}>` },
                     { headers: { 'x-api-key': key } }
                 )
                 await req.data
