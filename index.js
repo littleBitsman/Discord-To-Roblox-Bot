@@ -15,6 +15,7 @@ for (const file of commandFiles) {
   } catch {
     thing.push(command)
   }
+  bot.commands.set(command.name, command)
 }
 bot.on('ready', async () => {
   console.log('This bot is online! Created by @littleBitsman.');
