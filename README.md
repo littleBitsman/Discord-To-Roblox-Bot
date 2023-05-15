@@ -1,5 +1,6 @@
 # Discord-to-Roblox Moderation Bot
 ## Instructions for Installation (or, watch the video when it's out):
+*note: this tutorial assumes that if you are using a PC for setup and not Glitch you are on a Windows PC. this especially influences step 17*
 1. Download the latest release as a ZIP file.
 2. Extract it to a folder. In this guide, it will be referred to as "the folder".
 3. Open `config.json`.
