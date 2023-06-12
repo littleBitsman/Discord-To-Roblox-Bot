@@ -1,4 +1,5 @@
 # Discord-to-Roblox Moderation Bot
+this is currently broken, I will make a video after it's fixed.
 ## Instructions for Installation (or, watch the video when it's out):
 *note: this tutorial assumes that if you are using a PC for setup and not Glitch you are on a Windows PC. this especially influences step 17*
 1. Download the latest release as a ZIP file.
