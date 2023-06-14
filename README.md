@@ -1,3 +1,5 @@
+# DO NOT USE THIS RIGHT NOW. I AM WORKING ON A FIX.
+
 # Discord-to-Roblox Moderation Bot
 this is currently broken, I will make a video after it's fixed.
 ## Instructions for Installation (or, watch the video when it's out):
