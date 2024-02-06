@@ -1,4 +1,4 @@
-# DO NOT USE THIS RIGHT NOW. I AM WORKING ON A FIX.
+# This code is being deprecated, please consider using [roblox-rtc](https://npmjs.org/package/roblox-rtc) instead.
 
 # Discord-to-Roblox Moderation Bot
 this is currently broken, I will make a video after it's fixed.
